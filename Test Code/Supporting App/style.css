@@ -44,9 +44,22 @@ body {
 
 .NavIcon {
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
-.magnifying-glass-btn {
+.search {
     position: relative;
-    cursor: pointer;
+    display: flex;
+    background-color: gray;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.searchInput{
+    border: none;
+    background-color: transparent;
+}
+
+.searchInput::placeholder{
+    color: white;
 }
