@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
 :root {
-    --primaryColor: #f09d51;
+    --primaryColor: #0000ff;
     --mainWhite: #fff;
     --mainBlack: #222;
     --mainGrey: #ececec;
@@ -32,6 +32,7 @@ body {
     z-index: 1;
 }
 
+/*NavBar*/
 .NavBarCenter{
     width: 100%;
     max-width: 1170px;
@@ -60,7 +61,9 @@ body {
     border-radius: 30%;
     color: var(--mainWhite);
 }
+/*End of the NavBar*/
 
+/*Hero*/
 .Hero{
     min-height: calc(100vh - 60px);
     background: url("./Image/Computer.png") center/cover no-repeat;
@@ -99,4 +102,86 @@ body {
 .BannerButton:hover{
     background: transparent;
     color: var(--primaryColor);
+}
+/*End of Hero*/
+
+/*Product*/
+.Products{
+    padding: 4rem 0;
+}
+
+.SectionTitle h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+}
+
+.ProductsCenter{
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+}
+
+.ImageContainer{
+    position: relative;
+    overflow: hidden;
+}
+
+.BagButton{
+    position: absolute;
+    top: 70%;
+    right: 0;
+    background: var(--primaryColor);
+    border: none;
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+    letter-spacing: var(--mainSpacing);
+    font-weight: bold;
+    transition: var(--mainTransition);
+    transform: translateX(101%);
+    cursor: pointer;
+}
+
+.BagButton:hover{
+    color: var(--mainWhite);
+}
+
+.fa-shopping-cart{
+    margin-right: 0.5rem;
+}
+
+.ImageContainer:hover .BagButton{
+    transform: translateX(0);
+}
+
+.ProductImage{
+    display: block;
+    width: 100%;
+    min-height: 12rem;
+    transition: var(--mainTransition);
+}
+
+.ImageContainer:hover .ProductImage{
+    opacity: 0.5;
+}
+
+.Product h3{
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    letter-spacing: var(--mainSpacing);
+    text-align: center
+}
+
+.Product h4{
+    margin-top: 0.7rem;
+    letter-spacing: var(--mainSpacing);
+    color: var(--primaryColor);
+    text-align: center;
 }
