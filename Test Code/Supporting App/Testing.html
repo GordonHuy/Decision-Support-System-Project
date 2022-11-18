@@ -48,11 +48,10 @@
             <button class = "BannerButton">Shop Now</button>
         </div>
 
-        
     </header>
+    <!--End of Hero-->
 
     <!--Products-->
-
     <section class="Products">
 
         <div class="SectionTitle">
@@ -80,66 +79,53 @@
             </article>
             <!--End of single product-->
 
-            <!--Single Product-->
-            <article class="Product">
-            
-                <div class="ImageContainer">
-            
-                    <img src="./Image/Computer.png" alt="Product" class="ProductImage">
-            
-                    <button class="BagButton" , data-id="1">
-                        <i class="fas fa-shopping-cart"></i>
-                        Add to bag
-                    </button>
-            
-                </div>
-            
-                <h3>Testing Product</h3>
-                <h4>0$</h4>
-            </article>
-            <!--End of single product-->
-
-            <!--Single Product-->
-            <article class="Product">
-            
-                <div class="ImageContainer">
-            
-                    <img src="./Image/Computer.png" alt="Product" class="ProductImage">
-            
-                    <button class="BagButton" , data-id="1">
-                        <i class="fas fa-shopping-cart"></i>
-                        Add to bag
-                    </button>
-            
-                </div>
-            
-                <h3>Testing Product</h3>
-                <h4>0$</h4>
-            </article>
-            <!--End of single product-->
-
-            <!--Single Product-->
-            <article class="Product">
-            
-                <div class="ImageContainer">
-            
-                    <img src="./Image/Computer.png" alt="Product" class="ProductImage">
-            
-                    <button class="BagButton" , data-id="1">
-                        <i class="fas fa-shopping-cart"></i>
-                        Add to bag
-                    </button>
-            
-                </div>
-            
-                <h3>Testing Product</h3>
-                <h4>0$</h4>
-            </article>
-            <!--End of single product-->
-
         </div>
 
     </section>
+    <!--End of Products-->
+
+    <!--Cart-->
+    <div class="cart-overlay">
+
+        <div class="cart">
+
+            <span class="close-cart">
+                <i class="fas fa-window-close"></i>
+            </span>
+
+            <h2>Your Cart</h2>
+
+            <div class="cart-content">
+
+                <!--cart item-->
+                <div class="cart-item">
+
+                    <img src="./Image/Computer.png" alt="Product" />
+
+                    <div>
+                        <h4>Testing Product</h4>
+                        <h5>$0</h5>
+                        <span class="remove-item">Remove</span>
+                    </div>
+
+                    <div>
+                        <i class="fas fa-chevron-up"></i>
+                        <p class="item-amount">1</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                </div>
+                <!--The End of the cart item-->
+            </div>
+
+            <div class="cart-footer">
+                <h3> Your Total: $ <span class="cart-total">0</span></h3>
+                <button class="clear-cart BannerButton">Clear Cart</button>
+            </div>
+
+        </div>
+    </div>
+    <!--End of Cart-->
 
     <script src="App.js"></script>
 
