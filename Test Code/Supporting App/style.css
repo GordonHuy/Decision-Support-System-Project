@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
 :root {
-    --primaryColor: #0000FF;
+    --primaryColor: #f09d51;
     --mainWhite: #fff;
     --mainBlack: #222;
     --mainGrey: #ececec;
@@ -21,7 +21,7 @@ body {
     font-family: "Lato", sans-serif;
 }
 
-.NavBar {
+.NavBar{
     position: sticky;
     top: 0;
     height: 60px;
@@ -32,7 +32,7 @@ body {
     z-index: 1;
 }
 
-.NavBarCenter {
+.NavBarCenter{
     width: 100%;
     max-width: 1170px;
     margin: 0 auto;
@@ -42,51 +42,49 @@ body {
     padding: 0 1.5rem;
 }
 
-.NavIcon {
+.NavIcon{
     font-size: 1.5rem;
+}
+
+.CartButton{
+    position: relative;
     cursor: pointer;
 }
 
-.search {
-    position: relative;
-    display: flex;
-    background-color: gray;
-    padding: 10px 20px;
-    border-radius: 10px;
+.CartItems{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primaryColor);
+    padding: 0 5px;
+    border-radius: 30%;
+    color: var(--mainWhite);
 }
 
-.searchInput{
-    border: none;
-    background-color: transparent;
-}
-
-.searchInput::placeholder{
-    color: white;
-}
-
-.hero{
+.Hero{
     min-height: calc(100vh - 60px);
-    background: url("./Image/Search.png")center/cover no-repeat;
+    background: url("./Image/Computer.png") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.banner{
+.Banner{
     text-align: center;
-    background: rgba(255,255,255, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     display: inline-block;
     padding: 2rem;
 }
 
-.banner-title{
-    font-size: 3,4rem;
+.BannerTitle
+{
+    font-size: 3.4rem;
     text-transform: uppercase;
     letter-spacing: var(--mainSpacing);
     margin-bottom: 3rem;
 }
 
-.banner-btn {
+.BannerButton{
     padding: 1rem 3rem;
     text-transform: uppercase;
     letter-spacing: var(--mainSpacing);
@@ -98,34 +96,7 @@ body {
     cursor: pointer;
 }
 
-.banner-btn:hover{
+.BannerButton:hover{
     background: transparent;
     color: var(--primaryColor);
 }
-
-/*End of Hero*/
-
-/*Product*/
-
-.products{
-    padding: 4rem 0;
-}
-
-.section-title h2{
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 5rem;
-    text-transform: capitalize;
-    letter-spacing: var(--mainSpacing);
-}
-
-.products-center{
-    width: 90vw;
-    margin: 0 auto;
-    max-width: 1170px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260, 1fr));
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 2rem;
-}
-
