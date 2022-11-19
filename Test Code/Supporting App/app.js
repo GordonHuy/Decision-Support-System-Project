@@ -19,8 +19,8 @@ class Products {
     async getProducts() {
         try {
             let result = await fetch("laptop_price.json")
-            let data = await result.json();
-            return data;
+            let products = await result.json();
+            return products;
         } catch (error) {
             console.log(error);
         }
@@ -29,8 +29,34 @@ class Products {
 
 //display products
 class UI {
-    
+    displayProducts(products){
+        let result = "";
+        products.forEach(product => {
+             result +=`
+            <!--Single Product-->
+            <article class="Product">
+
+                <div class="ImageContainer">
+
+                    <img src="./Image/Computer.png" alt="Product" class="ProductImage">
+
+                    <button class="BagButton", data-id=${product.laptop_ID}>
+                        <i class="fas fa-shopping-cart"></i>
+                        Add to bag
+                    </button>
+
+                </div>
+
+                <h3>${product.Product}</h3>
+                <h4>${product.Price_euros}</h4>
+            </article>
+            <!--End of single product-->
+            `;
+        });
+        productsDOM.innerHTML = result;
+    }
 }
+
 
 //Local Storage
 class Storage {
@@ -42,5 +68,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = new Products();
 
     //get all Products
-    products.getProducts().then(data => console.table(data));
+    products.getProducts().then(products => ui.displayProducts(products))
 });
