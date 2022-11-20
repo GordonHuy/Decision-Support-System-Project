@@ -7,6 +7,7 @@ const cartItem = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
+const btn = document.querySelectorAll('.bag-btn');
 
 //Cart
 let cart = [];
@@ -41,7 +42,10 @@ class UI{
                     </button>
                 </div>
                 <h3>${product.Product}</h3>
-                <h4>${product.Price_euros}</h4>
+                <h3>Type: ${product.TypeName}<h3>
+                <h3>Screen size: ${product.Inches} Inches<h3>
+                <h3>Operating System: ${product.OpSys}<h3>
+                <h4>${product.Price_euros} euros </h4>
             </article>
             <!--End of Single Product-->
             `;
@@ -52,7 +56,9 @@ class UI{
 
 //Local storage
 class Storage{
-
+    static saveProducts(products){
+        localStorage.setItem("products", JSON.stringify(products));
+    }
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -60,5 +66,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const products = new Products();
 
     //get all products
-    products.getProducts().then(products => ui.displayProducts(products));
+    products.getProducts().then(products => {
+        ui.displayProducts(products)
+        Storage.saveProducts(products);
+    }).then(()=>{
+        
+    });
 });
