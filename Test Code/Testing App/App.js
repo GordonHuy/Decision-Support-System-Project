@@ -35,47 +35,27 @@ class UI{
             <article class="product">
                 <div class="img-container">
                     <img src="./Image/Laptop.png" alt="product" class="product-img">
-                    <button class="bag-btn" data-id=${product.laptop_ID}>
+                    <button class="bag-btn" data-id=${product.id}>
                         <i class="fas fa-shopping-cart"></i>
                         Add To Bag
                     </button>
                 </div>
-                <h3>${product.Product}</h3>
-                <h3>Type: ${product.TypeName}<h3>
-                <h3>Screen size: ${product.Inches} Inches<h3>
-                <h3>Operating System: ${product.OpSys}<h3>
-                <h4>${product.Price_euros} euros </h4>
+                <h3>Name: ${product.Product}</h3>
+                <h3>Brand: ${product.Company}</h3>
+                <h3>Type: ${product.TypeName}</h3>
+                <h3>Screen Size: ${product.Inches} Inches</h3>
+                <h4>Price: ${product.Price_euros} euros</h4>
             </article>
             <!--End of Single Product-->
             `;
         });
         productsDOM.innerHTML = result;
     }
-
-    getBagButton(){
-        const buttons = [...document.querySelectorAll('.bag-btn')];
-        buttons.forEach(button => {
-            let id = button.dataset.id;
-            let inCart = cart.find(item => item.id == id);
-            if(inCart){
-                button.innerText = "In Cart";
-                button.disable = true
-            }
-            else{
-                button.addEventListener('click', (event)=>{
-                    event.target.innerText = "In Cart";
-                    event.target.disabled = true
-                })
-            }
-        });
-    }
 }
 
 //Local storage
 class Storage{
-    static saveProducts(products){
-        localStorage.setItem("products", JSON.stringify(products));
-    }
+
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -83,10 +63,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const products = new Products();
 
     //get all products
-    products.getProducts().then(products => {
-        ui.displayProducts(products)
-        Storage.saveProducts(products);
-    }).then(()=>{
-        ui.getBagButton();
-    });
+    products.getProducts().then(products => ui.displayProducts(products));
 });
