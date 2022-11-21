@@ -68,8 +68,8 @@ class UI{
                     event.target.innerText = "In Cart";
                     event.target.disabled = true;
                     //get product from products
-                    let cartItem = {...Storage.getProduct(id),
-                    amount: 1 };
+                    let cartItem = {...Storage.getProduct(id),amount: 1 };
+                    console.log(cartItem);
                     //add product to the cart
                     cart = [...cart, cartItem];
                     //save cart in local storage
@@ -91,7 +91,6 @@ class UI{
         });
         cartTotal.innerText = parseFloat(tempTotal.toFixed(2))
         cartItems.innerText = itemsTotal;
-        console.log(cartTotal,cartItems);
     }
 }
 
