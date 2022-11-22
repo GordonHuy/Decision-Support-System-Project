@@ -17,7 +17,7 @@ let buttonsDOM = [];
 class Products{
     async getProducts(){
         try{
-            let result = await fetch('laptop_price.json')
+            let result = await fetch('laptop_price_2.json')
             let products =  await result.json()
             return products;
         } catch(error){
@@ -37,7 +37,7 @@ class UI{
             <article class="product">
                 <div class="img-container">
                     <img src="./Image/Laptop.png" alt="product" class="product-img">
-                    <button class="bag-btn" data-id=${product.laptop_ID}>
+                    <button class="bag-btn" data-id=${product.id}>
                         <i class="fas fa-shopping-cart"></i>
                         Add To Bag
                     </button>
@@ -58,7 +58,7 @@ class UI{
         const buttons = [ ...document.querySelectorAll(".bag-btn")];
         buttonsDOM = buttons;
         buttons.forEach(button => {
-            let id = button.dataset.laptop_ID;
+            let id = button.dataset.id;
             let inCart = cart.find(item => item.id === id);
             if(inCart){
                 button.innerText = "In Cart";
@@ -69,7 +69,6 @@ class UI{
                     event.target.disabled = true;
                     //get product from products
                     let cartItem = {...Storage.getProduct(id),amount: 1 };
-                    console.log(cartItem);
                     //add product to the cart
                     cart = [...cart, cartItem];
                     //save cart in local storage
@@ -77,6 +76,7 @@ class UI{
                     //set cart values
                     this.setCartValues(cart);
                     //display cart item
+                    this.addCartItem(cartItem);
                     //show the cart
 
                 });
@@ -87,10 +87,29 @@ class UI{
         let itemsTotal = 0;
         cart.map(item => {
             tempTotal += item.Price_euros * item.amount;
-            itemsTotal += item.amount
+            itemsTotal += item.amount;
         });
-        cartTotal.innerText = parseFloat(tempTotal.toFixed(2))
+        cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
         cartItems.innerText = itemsTotal;
+    }
+    addCartItem(item){
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML= `
+        <img src="./Image/Computer.png" alt="product" />
+                    <div>
+                        <h4>${item.Product}</h4>
+                        <h5>${item.Price_euros} euros</h5>
+                        <span class="remove-item" data-id=${item.id}>Remove</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-chevron-up" data-id=${item.id}></i>
+                        <p class="item-amount">${item.amount}</p>
+                        <i class="fas fa-chevron-down" data-id=${item.id}></i>
+                    </div>
+        `;
+        cartContent.appendChild(div);
+        console.log(cartContent);
     }
 }
 
